@@ -1,0 +1,19 @@
+{
+  "name": "conwaysGame",
+  "version": "0.0.1",
+  "description": "game of life",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ariellyrycs/conwaysGame"
+  },
+  "author": "ariel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ariellyrycs/conwaysGame/issues"
+  },
+  "homepage": "https://github.com/ariellyrycs/conwaysGame"
+}
