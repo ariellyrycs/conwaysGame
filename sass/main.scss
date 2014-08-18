@@ -17,7 +17,8 @@ section {
   margin: auto;
 
 }
-div{
+div {
+  cursor: pointer;
   background-color: darkolivegreen;
   height: 10px;
   width: 10px;
@@ -25,4 +26,7 @@ div{
   line-height: 12px;
   border: 1px solid black;
   float: left;
+    &.black-box {
+      background-color:black;
+    }
 }
