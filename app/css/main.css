@@ -16,7 +16,7 @@ section {
   position: relative;
   margin: auto; }
 
-div {
+div:not(.control) {
   cursor: pointer;
   background-color: darkolivegreen;
   height: 10px;
@@ -25,5 +25,15 @@ div {
   line-height: 12px;
   border: 1px solid black;
   float: left; }
-  div.black-box {
-    background-color: black; }
+div.black-box {
+  background-color: black; }
+
+.control {
+  width: 74px;
+  height: 74px;
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  left: -70px;
+  background: url("img/play_stop.png");
+  background-position: -150px -298px; }

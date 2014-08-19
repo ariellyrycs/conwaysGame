@@ -2,7 +2,7 @@ var game = (function () {
     /*globals resize*/
     'use strict';
     var rules = {
-        dead : [1, 4, 5, 6, 7, 8],
+        dead : [0, 1, 4, 5, 6, 7, 8],
         alive : 2,
         born: 3,
         start: 2
@@ -60,31 +60,49 @@ var game = (function () {
                 }
             }
         },
-        mergeNewItems = function () {
+        mergeNewItems = function (item) {
+            if(_changesToDo[item]) {
+                activate(_activeElements, item);
+            } else {
+                remove(_activeElements, item);
+            }
+        },
+        loopThroughChanges = function () {
             var item;
             for(item in _changesToDo){
                 if(_changesToDo.hasOwnProperty(item)) {
-                    _activeElements[item] = _changesToDo[item];
+                    mergeNewItems(item);
                 }
             }
             game._changesToDo = {};
+        },
+        killElements = function (number, item) {
+            if(rules.dead.indexOf(number) !== -1) {
+                _changesToDo[item] = false;
+            }
+        },
+        loopActive = function () {
+            var item,
+                itemsAround;
+            for(item in _activeElements) {
+                if(_activeElements.hasOwnProperty(item)) {
+                    itemsAround = detectAround(item);
+                    killElements(itemsAround.number, item);
+                    detectNextAround(itemsAround.aroundId);
+                }
+            }
         };
         return {
-            myFunctionReference : function (idCurrentElement) {
-                activate(_activeElements, idCurrentElement);
-                //remove(idCurrentElement);
-                /*this.style.backgroundColor = rules.alive.color;
-                 detectAround.call(idCurrentElement);
-                 addCurrent(idCurrentElement);*/
-            },
+            myFunctionReference: loopActive,
             numberAround : function (idCurrentElement) {
-                var infoAround;
                 activate(_activeElements, idCurrentElement);
-                infoAround = detectAround(idCurrentElement);
-                detectNextAround(infoAround.aroundId);
-                return infoAround.number >= rules.start;
+                /*infoAround = detectAround(idCurrentElement);
+                loopActive();
+                console.log(infoAround);
+                return infoAround.number >= rules.start;*/
             },
             changes: _changesToDo,
-            merge: mergeNewItems
+            merge: loopThroughChanges
         };
+
 }());

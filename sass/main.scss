@@ -18,15 +18,28 @@ section {
 
 }
 div {
+  &:not(.control){
+    cursor: pointer;
+    background-color: darkolivegreen;
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+    line-height: 12px;
+    border: 1px solid black;
+    float: left;
+  }
+  &.black-box {
+    background-color:black;
+  }
+}
+.control {
+
+  width: 74px;
+  height: 74px;
+  display:block;
+  position:absolute;
   cursor: pointer;
-  background-color: darkolivegreen;
-  height: 10px;
-  width: 10px;
-  display: inline-block;
-  line-height: 12px;
-  border: 1px solid black;
-  float: left;
-    &.black-box {
-      background-color:black;
-    }
+  left: -70px;
+  background: url("img/play_stop.png");
+  background-position:  -150px -298px;
 }
