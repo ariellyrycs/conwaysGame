@@ -16,6 +16,7 @@
         statusActive = false,
         startingPoint = -70,
         transitionTime,
+        /*change Elements color*/
         update = function () {
             var item,
                 changes = game.changes,
@@ -36,8 +37,9 @@
         },
         setLoop = function () {
             loopThroughActive = setInterval(function () {
-                game.myFunctionReference();
-                update().then(game.merge);
+                game.loopActive().then(function () {
+                    update().then(game.merge);
+                });
             }, intervalTime);
         },
         boxClick = function () {

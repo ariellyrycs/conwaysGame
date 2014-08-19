@@ -41,19 +41,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game-of-life.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="game-of-life.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/js/game-of-life.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="13" selection-start="3199" selection-end="3199" vertical-scroll-proportion="-24.115385" vertical-offset="1029" max-vertical-offset="2034">
+            <state line="58" column="36" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.7102967" vertical-offset="637" max-vertical-offset="1962">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="resize.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/js/resize.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="41" selection-start="1669" selection-end="1669" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="936">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="23" selection-start="527" selection-end="534" vertical-scroll-proportion="0.14485165" vertical-offset="241" max-vertical-offset="1710">
+            <state line="33" column="13" selection-start="1077" selection-end="1077" vertical-scroll-proportion="-10.269231" vertical-offset="291" max-vertical-offset="1746">
               <folding />
             </state>
           </provider>
@@ -70,12 +79,12 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/Gruntfile.js" />
-        <option value="$PROJECT_DIR$/app/js/resize.js" />
         <option value="$PROJECT_DIR$/app/js/promise.js" />
         <option value="$PROJECT_DIR$/app/js/promise.min.js" />
         <option value="$PROJECT_DIR$/app/css/main.css" />
         <option value="$PROJECT_DIR$/app/index.html" />
         <option value="$PROJECT_DIR$/sass/main.scss" />
+        <option value="$PROJECT_DIR$/app/js/resize.js" />
         <option value="$PROJECT_DIR$/app/js/main.js" />
         <option value="$PROJECT_DIR$/app/js/game-of-life.js" />
       </list>
@@ -252,7 +261,7 @@
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="/opt/lampp/htdocs/www/home/barlloAriel" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gallery/index.html" />
     <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="RecentsManager">
@@ -359,8 +368,8 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21773142" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1695279" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1851369" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16165951" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297568" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17340288" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -387,16 +396,11 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="5" selection-start="115" selection-end="115" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="198">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/js/resize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="21" selection-start="1953" selection-end="1966" vertical-scroll-proportion="0.0" vertical-offset="563" max-vertical-offset="1116" />
+        <state line="54" column="21" selection-start="1953" selection-end="1966" vertical-scroll-proportion="0.0" vertical-offset="563" max-vertical-offset="1116">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
@@ -429,7 +433,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/resize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="19" selection-start="1224" selection-end="1258" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="936" />
+        <state line="31" column="19" selection-start="1224" selection-end="1258" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="936">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
@@ -462,7 +468,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/resize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="19" selection-start="1224" selection-end="1258" vertical-scroll-proportion="0.0" vertical-offset="353" max-vertical-offset="936" />
+        <state line="31" column="19" selection-start="1224" selection-end="1258" vertical-scroll-proportion="0.0" vertical-offset="353" max-vertical-offset="936">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
@@ -481,7 +489,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/resize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="49" selection-start="1388" selection-end="1388" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="792" />
+        <state line="35" column="49" selection-start="1388" selection-end="1388" vertical-scroll-proportion="0.0" vertical-offset="630" max-vertical-offset="792">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
@@ -505,7 +515,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/resize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="5" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="198" />
+        <state line="5" column="5" selection-start="82" selection-end="82" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="198">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
@@ -557,7 +569,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/resize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="5" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="180" />
+        <state line="4" column="5" selection-start="64" selection-end="64" vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="180">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/bower/lib/index.js">
@@ -652,21 +666,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/resize.js">
+    <entry file="file://$PROJECT_DIR$/../gallery/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="10" selection-start="1124" selection-end="1124" vertical-scroll-proportion="0.08280255" vertical-offset="465" max-vertical-offset="936" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="59" selection-start="403" selection-end="403" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="414">
+        <state line="203" column="4" selection-start="4637" selection-end="4673" vertical-scroll-proportion="0.6006826" vertical-offset="3302" max-vertical-offset="3888">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../gallery/css/main.css">
+    <entry file="file://$PROJECT_DIR$/../gallery/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="4" selection-start="4637" selection-end="4673" vertical-scroll-proportion="0.6006826" vertical-offset="3302" max-vertical-offset="3888">
+        <state line="3" column="8" selection-start="52" selection-end="155" vertical-scroll-proportion="0.09440559" vertical-offset="0" max-vertical-offset="572">
           <folding />
         </state>
       </provider>
@@ -678,16 +687,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/game-of-life.js">
+    <entry file="file://$PROJECT_DIR$/app/js/resize.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="13" selection-start="3199" selection-end="3199" vertical-scroll-proportion="-24.115385" vertical-offset="1029" max-vertical-offset="2034">
+        <state line="44" column="41" selection-start="1669" selection-end="1669" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="936">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="23" selection-start="527" selection-end="534" vertical-scroll-proportion="0.14485165" vertical-offset="241" max-vertical-offset="1710">
+        <state line="33" column="13" selection-start="1077" selection-end="1077" vertical-scroll-proportion="-10.269231" vertical-offset="291" max-vertical-offset="1746">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="59" selection-start="403" selection-end="403" vertical-scroll-proportion="-8.666667" vertical-offset="0" max-vertical-offset="414">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/game-of-life.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="36" selection-start="2165" selection-end="2165" vertical-scroll-proportion="0.7102967" vertical-offset="637" max-vertical-offset="1962">
           <folding />
         </state>
       </provider>

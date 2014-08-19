@@ -4,21 +4,12 @@ var game = (function () {
     var rules = {
         dead : [0, 1, 4, 5, 6, 7, 8],
         alive : 2,
-        born: 3,
-        start: 2
+        born: 3
         },
         _changesToDo = {},
         _activeElements = {},
         activate = function (array ,element) {
             array[element] = true;
-        },
-        remove = function (array, element) {
-            array.splice(element, 1);
-        },
-        applyRules = function (content, number) {
-            if(rules.dead.hasOwnProperty(number)) {
-                _changesToDo[number] = false;
-            }
         },
         detectAround = function (idElement) {
             var around = {
@@ -45,8 +36,6 @@ var game = (function () {
                 number: _activeArrayAroundNumber,
                 aroundId: around
             };
-            //return number;
-            //applyRules(exist, number);
         },
         detectNextAround = function (aroundId) {
             var i,
@@ -54,18 +43,26 @@ var game = (function () {
             for(i = 0; i <= 7; i += 1) {
                 if(!aroundId[i][1]) {
                     nextAround = detectAround(aroundId[i][0]);
-                    if(nextAround.number >= rules.born) {
+                    if(nextAround.number === rules.born) {
                         activate(_changesToDo, aroundId[i][0]);
                     }
                 }
             }
         },
         mergeNewItems = function (item) {
+            /*debugger;
+            console.log(_changesToDo[item]);
+            console.log(_activeElements);
+            (_changesToDo[item]) ? activate(_activeElements, item) : delete _activeElements[item];
+            console.log(_activeElements);*/
+            console.log(typeof _changesToDo[item]);
             if(_changesToDo[item]) {
                 activate(_activeElements, item);
             } else {
-                remove(_activeElements, item);
+                delete _activeElements[item];
+
             }
+
         },
         loopThroughChanges = function () {
             var item;
@@ -74,7 +71,7 @@ var game = (function () {
                     mergeNewItems(item);
                 }
             }
-            game._changesToDo = {};
+            _changesToDo = {};
         },
         killElements = function (number, item) {
             if(rules.dead.indexOf(number) !== -1) {
@@ -83,7 +80,8 @@ var game = (function () {
         },
         loopActive = function () {
             var item,
-                itemsAround;
+                itemsAround,
+                finished = new promise.Promise();
             for(item in _activeElements) {
                 if(_activeElements.hasOwnProperty(item)) {
                     itemsAround = detectAround(item);
@@ -91,15 +89,13 @@ var game = (function () {
                     detectNextAround(itemsAround.aroundId);
                 }
             }
+            finished.done(null);
+            return finished;
         };
         return {
-            myFunctionReference: loopActive,
+            loopActive: loopActive,
             numberAround : function (idCurrentElement) {
                 activate(_activeElements, idCurrentElement);
-                /*infoAround = detectAround(idCurrentElement);
-                loopActive();
-                console.log(infoAround);
-                return infoAround.number >= rules.start;*/
             },
             changes: _changesToDo,
             merge: loopThroughChanges
