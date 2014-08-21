@@ -1,5 +1,5 @@
 var game = (function () {
-    /*globals resize*/
+    /*globals resize, promise*/
     'use strict';
     var rules = {
         dead : [0, 1, 4, 5, 6, 7, 8],
@@ -8,22 +8,45 @@ var game = (function () {
         },
         _changesToDo = {},
         _activeElements = {},
+        total = resize.total,
+        columns = resize.columns,
         activate = function (array ,element) {
             array[element] = true;
         },
         detectAround = function (idElement) {
             var around = {
-                    0: [idElement - resize.columns - 1],
-                    1: [idElement - resize.columns],
-                    2: [idElement - resize.columns + 1],
+                    0: [idElement - columns - 1],
+                    1: [idElement - columns],
+                    2: [idElement - columns + 1],
                     3: [idElement - 1],
                     4: [parseInt(idElement) + 1],
-                    5: [parseInt(idElement) + resize.columns - 1],
-                    6: [parseInt(idElement) + resize.columns],
-                    7: [parseInt(idElement) + resize.columns + 1]
+                    5: [parseInt(idElement) + columns - 1],
+                    6: [parseInt(idElement) + columns],
+                    7: [parseInt(idElement) + columns + 1]
                 },
                 i,
-                _activeArrayAroundNumber = 0;
+                _activeArrayAroundNumber = 0,
+                firstColumn = Math.floor(idElement / columns) * columns,
+                lastColumn = firstColumn + (columns - 1),
+                lastRow = total - columns + 1;
+            if(parseInt(idElement) === firstColumn) {
+                around[0][0] += columns;
+                around[3][0] += columns;
+                around[5][0] += columns;
+            } else if(parseInt(idElement) === lastColumn){
+                around[2][0] -= columns;
+                around[4][0] -= columns;
+                around[7][0] -= columns;
+            }
+            if(idElement < columns) {
+                around[0][0] += total;
+                around[1][0] += total;
+                around[2][0] += total;
+            } else if(idElement > lastRow) {
+                around[5][0] -= total;
+                around[6][0] -= total;
+                around[7][0] -= total;
+            }
             for(i = 0; i <= 7; i += 1) {
                 if(_activeElements.hasOwnProperty(around[i])) {
                     around[i][1] = true;
@@ -50,19 +73,17 @@ var game = (function () {
             }
         },
         mergeNewItems = function (item) {
-            /*debugger;
-            console.log(_changesToDo[item]);
-            console.log(_activeElements);
-            (_changesToDo[item]) ? activate(_activeElements, item) : delete _activeElements[item];
-            console.log(_activeElements);*/
-            console.log(typeof _changesToDo[item]);
             if(_changesToDo[item]) {
+                _activeElements[item] = true;
+            } else {
+                delete _activeElements[item];
+            }
+            /*this method is deprecated, i don't really know why*/
+            /*if(_changesToDo[item]) {
                 activate(_activeElements, item);
             } else {
                 delete _activeElements[item];
-
-            }
-
+            }*/
         },
         loopThroughChanges = function () {
             var item;
@@ -97,7 +118,9 @@ var game = (function () {
             numberAround : function (idCurrentElement) {
                 activate(_activeElements, idCurrentElement);
             },
-            changes: _changesToDo,
+            changes: function () {
+                return _changesToDo;
+            },
             merge: loopThroughChanges
         };
 

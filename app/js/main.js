@@ -11,7 +11,7 @@
             dead: 'darkolivegreen',
             alive: 'red'
         },
-        intervalTime = 1000,
+        intervalTime = 50,
         loopThroughActive,
         statusActive = false,
         startingPoint = -70,
@@ -19,13 +19,17 @@
         /*change Elements color*/
         update = function () {
             var item,
-                changes = game.changes,
+                changes = game.changes(),
                 changeStatus,
                 finished = new promise.Promise();
+
             for(item in changes) {
                 if(changes.hasOwnProperty(item)) {
                     changeStatus = document.getElementById(item);
-                    if(item) {
+                    if(changeStatus === null) {
+                        continue;
+                    }
+                    if(changes[item]) {
                         changeStatus.style.backgroundColor = color.alive;
                     } else {
                         changeStatus.style.backgroundColor = color.dead;

@@ -8,9 +8,9 @@ var resize = (function (window) {
             numberColumns = Math.floor(screenSize.width / squareSize);
             numberRows = Math.floor(screenSize.height / squareSize);
         },
-        getScreenSize = function (Element) {
-            screenSize.width = Element.offsetWidth;
-            screenSize.height =  Element.offsetHeight;
+        getScreenSize = function (element) {
+            screenSize.width = element.offsetWidth;
+            screenSize.height =  element.offsetHeight;
         },
         resizeSection = function (sectionElement) {
             sectionElement.style.width = (numberColumns * squareSize) + "px";
@@ -39,6 +39,7 @@ var resize = (function (window) {
     //TODO : remove or append elements "resizing"
     addingElements();
     window.onresize = addingElements;
+    console.log(numberColumns * numberRows);
     return {
         columns: numberColumns,
         rows: numberRows,
