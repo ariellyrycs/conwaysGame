@@ -13,20 +13,8 @@ var game = (function () {
         activate = function (array ,element) {
             array[element] = true;
         },
-        detectAround = function (idElement) {
-            var around = {
-                    0: [idElement - columns - 1],
-                    1: [idElement - columns],
-                    2: [idElement - columns + 1],
-                    3: [idElement - 1],
-                    4: [parseInt(idElement) + 1],
-                    5: [parseInt(idElement) + columns - 1],
-                    6: [parseInt(idElement) + columns],
-                    7: [parseInt(idElement) + columns + 1]
-                },
-                i,
-                _activeArrayAroundNumber = 0,
-                firstColumn = Math.floor(idElement / columns) * columns,
+        margin = function (idElement, around) {
+            var firstColumn = Math.floor(idElement / columns) * columns,
                 lastColumn = firstColumn + (columns - 1),
                 lastRow = total - columns + 1;
             if(parseInt(idElement) === firstColumn) {
@@ -47,6 +35,21 @@ var game = (function () {
                 around[6][0] -= total;
                 around[7][0] -= total;
             }
+        },
+        detectAround = function (idElement) {
+            var around = {
+                    0: [idElement - columns - 1],
+                    1: [idElement - columns],
+                    2: [idElement - columns + 1],
+                    3: [idElement - 1],
+                    4: [parseInt(idElement) + 1],
+                    5: [parseInt(idElement) + columns - 1],
+                    6: [parseInt(idElement) + columns],
+                    7: [parseInt(idElement) + columns + 1]
+                },
+                i,
+                _activeArrayAroundNumber = 0;
+            margin(idElement, around);
             for(i = 0; i <= 7; i += 1) {
                 if(_activeElements.hasOwnProperty(around[i])) {
                     around[i][1] = true;

@@ -18,9 +18,16 @@
   "homepage": "https://github.com/ariellyrycs/conwaysGame",
   "devDependencies": {
     "bower": "^1.3.9",
+    "chai": "^1.9.1",
     "grunt": "^0.4.5",
     "grunt-contrib-sass": "^0.7.4",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-express": "^1.4.1"
+    "grunt-express": "^1.4.1",
+    "grunt-karma": "^0.8.3",
+    "grunt-mocha": "^0.4.11",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-mocha": "^0.1.8",
+    "mocha": "^1.21.4"
   }
 }

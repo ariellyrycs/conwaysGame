@@ -39,10 +39,12 @@ var resize = (function (window) {
     //TODO : remove or append elements "resizing"
     addingElements();
     window.onresize = addingElements;
-    console.log(numberColumns * numberRows);
     return {
         columns: numberColumns,
         rows: numberRows,
         total: numberColumns * numberRows
     };
 }(window));
+function sum(a, b ) {
+    return  a + b;
+}
