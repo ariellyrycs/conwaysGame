@@ -1,7 +1,7 @@
 /**
  * Created by arobles on 8/15/14.
  */
-/*globals game, promise */
+/* globals game, promise */
 (function () {
     'use strict';
     var boxes = document.getElementsByTagName('div'),

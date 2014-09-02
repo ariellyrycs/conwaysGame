@@ -16,12 +16,13 @@ var game = (function () {
         margin = function (idElement, around) {
             var firstColumn = Math.floor(idElement / columns) * columns,
                 lastColumn = firstColumn + (columns - 1),
-                lastRow = total - columns + 1;
+                lastRow = total - columns;
             if(parseInt(idElement) === firstColumn) {
                 around[0][0] += columns;
                 around[3][0] += columns;
                 around[5][0] += columns;
-            } else if(parseInt(idElement) === lastColumn){
+            }
+            if(parseInt(idElement) === lastColumn){
                 around[2][0] -= columns;
                 around[4][0] -= columns;
                 around[7][0] -= columns;
@@ -30,7 +31,8 @@ var game = (function () {
                 around[0][0] += total;
                 around[1][0] += total;
                 around[2][0] += total;
-            } else if(idElement > lastRow) {
+            }
+            if(idElement >= lastRow) {
                 around[5][0] -= total;
                 around[6][0] -= total;
                 around[7][0] -= total;
@@ -81,12 +83,6 @@ var game = (function () {
             } else {
                 delete _activeElements[item];
             }
-            /*this method is deprecated, i don't really know why*/
-            /*if(_changesToDo[item]) {
-                activate(_activeElements, item);
-            } else {
-                delete _activeElements[item];
-            }*/
         },
         loopThroughChanges = function () {
             var item;
@@ -117,6 +113,19 @@ var game = (function () {
             return finished;
         };
         return {
+            /* //for testing purpuses
+            gameSet: function (_active, _total, _column) {
+                _activeElements =  _active || _activeElements;
+                total = _total || total;
+                columns = _column || columns;
+            },
+            margin: margin,
+            detectAround: detectAround,*/
+
+
+
+
+
             loopActive: loopActive,
             numberAround : function (idCurrentElement) {
                 activate(_activeElements, idCurrentElement);
@@ -126,5 +135,4 @@ var game = (function () {
             },
             merge: loopThroughChanges
         };
-
 }());

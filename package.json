@@ -28,6 +28,7 @@
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^0.1.4",
     "karma-mocha": "^0.1.8",
+    "karma-phantomjs-launcher": "^0.1.4",
     "mocha": "^1.21.4"
   }
 }

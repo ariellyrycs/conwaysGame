@@ -1,7 +1,8 @@
 // Karma configuration
 // Generated on Fri Aug 22 2014 17:26:05 GMT-0700 (MST)
-
+    /*globals module*/
 module.exports = function(config) {
+    'use strict';
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -14,10 +15,20 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [
-        'app/index.html',
-        'app/js/*.js',
-        'test/*.js'
+    files:[
+        {pattern: 'app/css/img/play_stop.png', served:true, included: false},
+        'app/css/*.css',
+        'app/js/resize.js',
+        'app/js/promise.min.js',
+        'app/js/game-of-life.js',
+        'app/js/resize.js',
+        'app/js/main.js',
+        'test/dom.js',
+        //'test/resize.test.js',
+        //'test/game-of-life.test.js'
+        'test/main.test.js',
+
+       //{pattern: 'app/*.*', watched: true, included: true, served: true}
     ],
 
 
@@ -25,11 +36,16 @@ module.exports = function(config) {
     exclude: [
         'karma.conf.js'
     ],
-
-
+      client: {
+          mocha: {
+              ui: 'bdd',
+              globals: ['resize']
+          }
+      },
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+
     },
 
 
@@ -53,16 +69,17 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'PhantomJS'],
     plugins: [
       'karma-mocha',
       'karma-chrome-launcher',
-      'karma-chai'
+      'karma-chai',
+      'karma-phantomjs-launcher'
     ],
 
 
