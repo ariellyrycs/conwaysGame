@@ -2,7 +2,8 @@
  * Created by arobles on 8/15/14.
  */
 /* globals game, promise */
-(function () {
+;
+/*var main = */(function () {
     'use strict';
     var boxes = document.getElementsByTagName('div'),
         control = document.getElementsByClassName('control'),
@@ -62,19 +63,18 @@
                 control[0].style.backgroundPosition = '-80px -6px';
                 statusActive = true;
             }
-
         },
         showStatus = function () {
-            this.style.left =  startingPoint + "px";
+            this.style.left =  startingPoint + 'px';
             startingPoint = startingPoint + 5;
             if(startingPoint >= 0) {
                 clearInterval(transitionTime);
             }
         },
         hideStatus = function () {
-            this.style.left =  startingPoint + "px";
+            this.style.left = startingPoint + 'px';
             startingPoint = startingPoint - 5;
-            if(startingPoint <= -70) {
+            if(startingPoint < -70) {
                 clearInterval(transitionTime);
             }
         },
@@ -95,4 +95,13 @@
     for (i = 0; i < boxes.length; i += 1) {
         boxes[i].addEventListener('click', boxClick, false);
     }
+    /*return {
+        set: function (intervalValue, _startingPoint) {
+            transitionTime = intervalValue || transitionTime;
+            startingPoint = _startingPoint || startingPoint;
+        },
+        boxClick: boxClick,
+        showStatus: showStatus,
+        hideStatus: hideStatus,
+    }*/
 }());

@@ -1,3 +1,4 @@
+;
 var game = (function () {
     /*globals resize, promise*/
     'use strict';
@@ -113,7 +114,7 @@ var game = (function () {
             return finished;
         };
         return {
-            /* //for testing purpuses
+            /*//for testing purpuses
             gameSet: function (_active, _total, _column) {
                 _activeElements =  _active || _activeElements;
                 total = _total || total;
@@ -121,7 +122,6 @@ var game = (function () {
             },
             margin: margin,
             detectAround: detectAround,*/
-
 
 
 

@@ -1,4 +1,5 @@
-/* globals describe, require, it, beforeEach, afterEach */
+;
+/* globals describe, it, before, beforeEach, afterEach, complements */
 var chai = chai || require('chai'),
     expect = chai.expect;
 
@@ -6,29 +7,16 @@ describe("Game Of Life test", function () {
     'use strict';
     describe("Testing calculateElements Function", function () {
         before("before calculateElements", function () {
-            game.gameSet(undefined, 16, 4);
-            this.position = 0;
-            this.toIncrement = [3, 9, 3, 0];
-            this.i = 0;
+            complements.elementsAround.set();
         });
         beforeEach("change params", function () {
-            this.around = {
-                0: [-5 + this.position],
-                1: [-4 + this.position],
-                2: [-3 + this.position],
-                3: [-1 + this.position],
-                4: [1 + this.position],
-                5: [3 + this.position],
-                6: [4 + this.position],
-                7: [5 + this.position]
-            };
-            game.margin(0  + this.position, this.around);
+            complements.elementsAround.beforeEach();
         });
         afterEach("change position", function () {
-            this.position += this.toIncrement[this.i++];
+            complements.elementsAround.afterEach();
         });
         it("Testing margin top left", function () {
-            expect(this.around).to.deep.equal({
+            expect(complements.elementsAround.around).to.deep.equal({
                 0:[15],
                 1:[12],
                 2:[13],
@@ -40,7 +28,7 @@ describe("Game Of Life test", function () {
             });
         });
         it("Testing margin top right", function () {
-            expect(this.around).to.deep.equal({
+            expect(complements.elementsAround.around).to.deep.equal({
                 0:[14],
                 1:[15],
                 2:[12],
@@ -52,7 +40,7 @@ describe("Game Of Life test", function () {
             });
         });
         it("Testing margin bottom left", function () {
-            expect(this.around).to.deep.equal({
+            expect(complements.elementsAround.around).to.deep.equal({
                 0:[11],
                 1:[8],
                 2:[9],
@@ -64,7 +52,7 @@ describe("Game Of Life test", function () {
             });
         });
         it("Testing margin bottom right", function () {
-            expect(this.around).to.deep.equal({
+            expect(complements.elementsAround.around).to.deep.equal({
                 0:[10],
                 1:[11],
                 2:[8],
@@ -78,11 +66,10 @@ describe("Game Of Life test", function () {
     });
     describe("Testing detectAround function.", function () {
         before("before calculateElements", function () {
-            game.gameSet({ 6: true, 10: true }, 16, 4);
-            this.object = game.detectAround(9).number;
+            complements.detectAround.set();
         });
         it("how many elements around it?", function () {
-            expect(this.object).to.equal(2).to.be.a('number');
+            expect(complements.detectAround.object).to.equal(2).to.be.a('number')
         });
     });
 });

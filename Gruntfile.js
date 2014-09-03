@@ -1,5 +1,5 @@
 
-/*globals module, grunt*/
+/* globals module, grunt*/
 
 module.exports = function (grunt) {
     'use strict';
@@ -49,12 +49,10 @@ module.exports = function (grunt) {
     });
 
 
-
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-express');
     grunt.loadNpmTasks('grunt-karma');
-    grunt.loadNpmTasks('grunt-mocha');
 
     grunt.registerTask('test', ['karma:unit:start', 'watch']);
     grunt.registerTask('gwatch',['watch']);

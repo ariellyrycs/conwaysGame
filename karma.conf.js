@@ -23,12 +23,10 @@ module.exports = function(config) {
         'app/js/game-of-life.js',
         'app/js/resize.js',
         'app/js/main.js',
-        'test/dom.js',
+        'test/complements.js',
         //'test/resize.test.js',
-        //'test/game-of-life.test.js'
-        'test/main.test.js',
-
-       //{pattern: 'app/*.*', watched: true, included: true, served: true}
+        //'test/game-of-life.test.js',
+        //'test/main.test.js'
     ],
 
 
@@ -39,7 +37,8 @@ module.exports = function(config) {
       client: {
           mocha: {
               ui: 'bdd',
-              globals: ['resize']
+              globals: ['resize'],
+              timeout: 2000
           }
       },
     // preprocess matching files before serving them to the browser
@@ -74,12 +73,12 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'PhantomJS'],
+    browsers: ['Chrome', 'Firefox'],
     plugins: [
       'karma-mocha',
-      'karma-chrome-launcher',
       'karma-chai',
-      'karma-phantomjs-launcher'
+      'karma-chrome-launcher',
+      'karma-firefox-launcher'
     ],
 
 
