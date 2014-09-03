@@ -1,12 +1,15 @@
 #conwaysGame
 ===========
+##game of life
+###ToInstall
 
-game of life
-install nodejs
-install npm
-install grunt
-install bower
+1.  install nodejs
+2.  install npm
+3.  install grunt
+4.  install bower
 
+#test
 run test: karma start
+#run
 run sysstem: grunt server
 
