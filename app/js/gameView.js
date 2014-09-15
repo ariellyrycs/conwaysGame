@@ -1,9 +1,9 @@
 /**
  * Created by arobles on 8/15/14.
  */
-/* globals game, promise */
+/* globals gameOfLife, promise */
 ;
-/*var main = */(function () {
+(function () {
     'use strict';
     var boxes = document.getElementsByTagName('div'),
         control = document.getElementsByClassName('control'),
@@ -12,18 +12,17 @@
             dead: 'darkolivegreen',
             alive: 'red'
         },
-        intervalTime = 50,
+        intervalTime = 50, //50ms
         loopThroughActive,
         statusActive = false,
-        startingPoint = -70,
+        startingPoint = -70,//-70px
         transitionTime,
         /*change Elements color*/
-        update = function () {
+        updateGame = function () {
             var item,
-                changes = game.changes(),
+                changes = gameOfLife.changes(),
                 changeStatus,
                 finished = new promise.Promise();
-
             for(item in changes) {
                 if(changes.hasOwnProperty(item)) {
                     changeStatus = document.getElementById(item);
@@ -42,14 +41,14 @@
         },
         setLoop = function () {
             loopThroughActive = setInterval(function () {
-                game.loopActive().then(function () {
-                    update().then(game.merge);
+                gameOfLife.loopActiveElements().then(function () {
+                    updateGame().then(gameOfLife.merge).then(gameOfLife.resetChanges);
                 });
             }, intervalTime);
         },
         boxClick = function () {
             var idCurrentElement = this.getAttribute('id');
-            game.numberAround(idCurrentElement);
+            gameOfLife.numberCellsAround(idCurrentElement);
             document.getElementById(idCurrentElement).style.backgroundColor = color.alive;
         },
         /*status button*/
@@ -95,13 +94,4 @@
     for (i = 0; i < boxes.length; i += 1) {
         boxes[i].addEventListener('click', boxClick, false);
     }
-    /*return {
-        set: function (intervalValue, _startingPoint) {
-            transitionTime = intervalValue || transitionTime;
-            startingPoint = _startingPoint || startingPoint;
-        },
-        boxClick: boxClick,
-        showStatus: showStatus,
-        hideStatus: hideStatus,
-    }*/
 }());

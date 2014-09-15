@@ -1,6 +1,6 @@
 // Karma configuration
 // Generated on Fri Aug 22 2014 17:26:05 GMT-0700 (MST)
-    /*globals module*/
+    /* globals module */
 module.exports = function(config) {
     'use strict';
   config.set({
@@ -21,12 +21,11 @@ module.exports = function(config) {
         'app/js/resize.js',
         'app/js/promise.min.js',
         'app/js/game-of-life.js',
-        'app/js/resize.js',
-        'app/js/main.js',
-        'test/complements.js',
-        //'test/resize.test.js',
-        //'test/game-of-life.test.js',
-        //'test/main.test.js'
+        'app/js/gameView.js',
+        'test/testUtilities.js',
+        'test/resize.test.js',
+        'test/game-of-life.test.js',
+        'test/gameView.test.js'
     ],
 
 

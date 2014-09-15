@@ -11,5 +11,5 @@
 #test
 run test: karma start
 #run
-run sysstem: grunt server
+run system: grunt server
 
