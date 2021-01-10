@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Conways game</title>
+    <style>
+        html, body {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            font-size: 16px;
+        }
+        nav {
+            height: 50px;
+            width: 100%;
+            background-color: black;
+            font-size: 1.5rem;
+        }
+        nav > * {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        button {
+            background-color: black;
+            color:white;
+            border:none;
+            margin-left: 5px;
+            margin-right: 5px;
+            border: 1px solid white;
+            border-radius: 3px;
+            padding: 7px;
+            outline: 0;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #777;
+        }
+        button:active {
+            background-color: #888;
+        }
+        
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        main {
+            height: calc(100% - 100px);
+        }
+
+        main > div {
+            height: 15px;
+            width: 15px;
+            border: 1px solid black;
+            box-sizing: border-box;
+            float: left;
+        }
+        .blue {
+            background-color: blue;
+        }
+
+        @media(min-width: 768px) {
+            .container {
+                width: 750px;
+            }
+        }
+        @media(min-width: 992px) {
+            .container {
+                width: 970px;
+            }
+        }
+        @media(min-width: 1200px) {
+            .container {
+                width: 1170px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+        </div>
+    </nav>
+    <main class="container">
+    </main>
+    <script>
+        (() => {
+            const gridContainer = document.getElementsByTagName('main')[0],
+                startButton = document.getElementById('start'),
+                stopButton = document.getElementById('stop'),
+                squareSize = 15;
+            let currentExec,
+                grid;
+
+            let generateGrids = (y, x) => Array(y).fill(0).map(() => Array(x).fill(0));
+
+            let paint = (g) => {
+                let str = '';
+                for(let y = 0; y < g.length; y += 1) {
+                    let row = g[y];
+                    for(let x = 0; x < row.length; x += 1) {
+                        str += `<div data-x="${x}" data-y="${y}" ${row[x] ? 'class="blue"': ''}></div>`;
+                    }
+                }
+                gridContainer.innerHTML = str;
+            };
+
+
+            let generateChanges = (g) => {
+                let tmp = [];
+                let str = '';
+                for(let y = 0; y < g.length; y += 1) {
+                    let row = g[y];
+                    for(let x = 0; x < row.length; x += 1) {
+                        let left = (x - 1 + row.length) % row.length;
+                        let right = (x + 1 + row.length) % row.length;
+                        let top = (y - 1 + g.length) % g.length;
+                        let bottom = (y + 1 + g.length) % g.length;
+                        let alives = g[top][left] + g[top][x] + g[top][right] + g[y][left] + g[y][right] + g[bottom][left] + g[bottom][x] + g[bottom][right]
+                        if(row[x] === 0) {
+                            if(alives === 3) {
+                                tmp.push([y, x, 1]);
+                            }
+                        } else {
+                            if(alives !== 2 && alives !== 3) {
+                                tmp.push([y, x, 0]);
+                            }
+                        }
+                    }
+                }
+                return tmp;
+            };
+
+            let applyChangesToGrid = (grid, changes) => {
+                for(let i = 0; i < changes.length; i += 1) {
+                    let [y, x, c] = changes[i];
+                    grid[y][x] = c;
+                }
+            };
+
+            let stopReproduction = () => {
+                clearInterval(currentExec);
+                currentExec = -1;
+            };
+
+            let fillOutGridsWithContainer = () => {
+                let numOfElementsByRow = Math.floor(gridContainer.offsetWidth / squareSize),
+                    numOfElementsByColumn = Math.floor(gridContainer.offsetHeight / squareSize);
+                grid = generateGrids(numOfElementsByColumn, numOfElementsByRow);
+                paint(grid);
+            };
+
+            fillOutGridsWithContainer();
+
+            gridContainer.addEventListener('click', ({target}) => {
+                if(target.tagName === 'DIV') {
+                    if(grid) {
+                        grid[target.dataset.y][target.dataset.x] = 1;
+                        paint(grid);
+                    }
+                }
+            });
+
+            startButton.addEventListener('click', () => {
+                if(currentExec > -1) {
+                    stopReproduction(currentExec);
+                }
+                currentExec = setInterval(() => {
+                    let changes = generateChanges(grid);
+                    applyChangesToGrid(grid, changes);
+                    paint(grid)
+                }, 200);
+            });
+
+            stopButton.addEventListener('click', stopReproduction);
+
+            window.addEventListener('resize', () => {
+                stopReproduction();
+                fillOutGridsWithContainer();
+            });
+        })();
+    </script>
+</body>
+</html>
